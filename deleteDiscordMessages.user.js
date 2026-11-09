@@ -1258,8 +1258,10 @@ body.undiscord-pick-message.after [id^="message-content-"]:hover::after {
 	  // create undiscord Trash icon
 	  ui.undiscordBtn = createElm(buttonHtml);
 	  ui.undiscordBtn.onclick = toggleWindow;
-	  function mountBtn() {
-	    const toolbar = document.querySelector('#app-mount [class*="-toolbar"]');
+      function mountBtn() {
+
+	    const toolbar = document.querySelector('section[aria-label="Channel header"] [class^="toolbar_"]') ||
+                document.querySelector('[class^="toolbar_"]');
 	    if (toolbar) toolbar.appendChild(ui.undiscordBtn);
 	  }
 	  mountBtn();
